@@ -26,13 +26,11 @@ public class Configuration {
 	
 	public static void initConfiguration() throws Exception{
 		File inputFile = new File(path.getFile());
-        DocumentBuilderFactory dbFactory = 
-           DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
-		dBuilder = dbFactory.newDocumentBuilder();
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(inputFile);
         doc.getDocumentElement().normalize();
-        NodeList ss = doc.getElementsByTagName("speech");
+        NodeList ss = doc.getElementsByTagName(VERSION);
         
         Configuration config = new Configuration();
         
@@ -40,7 +38,7 @@ public class Configuration {
         	Node n = ss.item(i);
         	switch(n.getNodeName()){
         	case VERSION:
-        		config.setVersion(n.getNodeValue());
+        		config.setVersion(n.getTextContent());
         		break;
         	default:
         		// unidentified -> skipping
