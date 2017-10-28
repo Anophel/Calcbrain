@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.anopheles.view.MainMenuController">
    <children>
       <HBox alignment="CENTER" layoutX="344.0" layoutY="187.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
@@ -15,7 +14,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calcbrain" />
                   <Text fx:id="version" strokeType="OUTSIDE" strokeWidth="0.0" />
-                  <Button fx:id="matrixOperations" mnemonicParsing="false" text="Operace s maticemi" VBox.vgrow="ALWAYS" />
+                  <Button fx:id="matrixOperations" mnemonicParsing="false" onAction="#openMatrixCalculator" text="Operace s maticemi" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </children>

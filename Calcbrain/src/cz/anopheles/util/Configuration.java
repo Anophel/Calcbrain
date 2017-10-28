@@ -11,7 +11,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import cz.anopheles.MainClass;
+import cz.anopheles.exception.CalcbrainException;
 
+/**
+ * Singleton class holding configuration of application.
+ * 
+ * 
+ * @author Anopheles
+ *
+ */
 public class Configuration {
 
 	private static final URL path = MainClass.class.getResource("sources/Configuration.xml");
@@ -49,7 +57,9 @@ public class Configuration {
         setConfiguration(config);
 	}
 	
-	public static Configuration getConfiguration() {
+	public static Configuration getConfiguration() throws CalcbrainException {
+		if(!isConfigReady())
+			throw new CalcbrainException("Configuration is not initialized yet!");
 		return configuration;
 	}
 

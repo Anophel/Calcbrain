@@ -1,6 +1,7 @@
 package cz.anopheles;
 
 import cz.anopheles.util.Configuration;
+import cz.anopheles.view.MainMenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,6 +28,20 @@ public class MainClass extends Application{
 
 	public void showMainMenu(){
 		FXMLLoader loader = new FXMLLoader(MainClass.class.getResource("view/MainMenu.fxml"));
+		try {
+			AnchorPane pane = (AnchorPane) loader.load();
+			MainMenuController cont = loader.getController();
+			cont.setMainClass(this);
+			primaryStage.setScene(new Scene(pane));
+		} catch (Exception e) {
+			showErrorPage(e);
+			e.printStackTrace(System.err);
+		}
+		primaryStage.show();
+	}
+	
+	public void showMatrixCalculator(){
+		FXMLLoader loader = new FXMLLoader(MainClass.class.getResource("view/MatrixCalculator.fxml"));
 		try {
 			AnchorPane pane = (AnchorPane) loader.load();
 			primaryStage.setScene(new Scene(pane));
