@@ -19,7 +19,8 @@ public class MainMenuController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		version.setText(Configuration.getConfiguration().getVersion());
+		if(Configuration.isConfigReady())
+			version.setText(Configuration.getConfiguration().getVersion());
 	}
 
 }

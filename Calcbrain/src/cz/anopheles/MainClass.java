@@ -1,5 +1,6 @@
 package cz.anopheles;
 
+import cz.anopheles.util.Configuration;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ public class MainClass extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
+		Configuration.initConfiguration();
 		showMainMenu();
 	}
 
